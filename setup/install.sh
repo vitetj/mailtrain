@@ -11,7 +11,7 @@ fi
 set -e
 
 export DEBIAN_FRONTEND=noninteractive
-
+apt-get -q -y install pwgen
 MYSQL_ROOT_PASSWORD=`pwgen 12 -1`
 
 debconf-set-selections <<< 'mariadb-server-5.5 mysql-server/root_password password $MYSQL_ROOT_PASSWORD'
@@ -55,7 +55,7 @@ ufw --force enable
 # Fetch Mailtrain files
 mkdir -p /opt/mailtrain
 cd /opt/mailtrain
-git clone git://github.com/Mailtrain-org/mailtrain.git .
+git clone https://github.com/Mailtrain-org/mailtrain.git .
 
 # Normally we would let Mailtrain itself to import the initial SQL data but in this case
 # we need to modify it, before we start Mailtrain
