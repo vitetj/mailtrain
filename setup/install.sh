@@ -135,7 +135,7 @@ fi
 # Fetch ZoneMTA files
 mkdir -p /opt/zone-mta
 cd /opt/zone-mta
-git clone git://github.com/zone-eu/zone-mta.git .
+git clone https://github.com/zone-eu/zone-mta.git .
 git checkout 6964091273
 
 # Ensure queue folder
